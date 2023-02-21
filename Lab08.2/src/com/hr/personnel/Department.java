@@ -59,6 +59,24 @@ public class Department {
         }
     }
 
+    /*
+     * "Forced Vacation" for all employees that take vacation (salariedEmployees)
+     * make them take vacation.
+     */
+
+    public void holidayBreak() {
+        for (int i = 0; i < currentIndex; i++) {
+            // downcast the employee reference to (employees[i] specific type Salaried Employee
+            if (employees[i] instanceof SalariedEmployee) {
+                //downcast and method call in one shot
+                // ((SalariedEmployee) employees[i]).takeVacation();
+
+                SalariedEmployee semp = (SalariedEmployee) employees[i];
+                semp.takeVacation();
+            }
+        }
+    }
+
     // helper method to add an Employee to the array
     public void addEmployee(Employee emp) {
         employees[currentIndex++] = emp;
