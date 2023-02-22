@@ -12,13 +12,14 @@
  * For the purposes of this lab, we give you a few wildcarded imports,
  * so you can use the classes in these packages without having to worry about importing them.
  */
-import java.sql.SQLOutput;
-import java.time.*;
-import java.time.format.*;
-import java.time.temporal.TemporalAdjuster;
-import java.time.temporal.TemporalAdjusters;
 
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.temporal.TemporalAdjusters;
+import static java.time.DayOfWeek.*;
 import static java.time.temporal.TemporalAdjusters.*;
+
+
 
 class DerivedDateTimeTest {
 
@@ -88,7 +89,7 @@ class DerivedDateTimeTest {
      */
     public static void testLaborDay() {
         LocalDate sept1 = LocalDate.of(1996, 9, 1);
-        LocalDate laborDay = sept1.with(TemporalAdjusters.nextOrSame(DayOfWeek.MONDAY));
+        LocalDate laborDay = sept1.with(nextOrSame(MONDAY));
         System.out.println(laborDay);
         System.out.println(laborDay.getDayOfWeek());
     }
@@ -101,7 +102,7 @@ class DerivedDateTimeTest {
      */
     public static void testElectionDay() {
         LocalDate nov1 = LocalDate.of(2024, 11, 1);
-        LocalDate eDay = nov1.with(TemporalAdjusters.nextOrSame(DayOfWeek.MONDAY)).plusDays(1);
+        LocalDate eDay = nov1.with(nextOrSame(MONDAY)).plusDays(1);
         System.out.println(eDay);
         System.out.println(eDay.getDayOfWeek());
     }
@@ -119,7 +120,7 @@ class DerivedDateTimeTest {
     public static void testAnniversary() {
         LocalDate wedding = LocalDate.of(1969, 6,6);
         LocalDate anniversary = wedding.plusYears(50);
-        LocalDate party = anniversary.with(TemporalAdjusters.nextOrSame(DayOfWeek.SATURDAY));
+        LocalDate party = anniversary.with(nextOrSame(SATURDAY));
         System.out.println(anniversary);
         System.out.println(party);
 
