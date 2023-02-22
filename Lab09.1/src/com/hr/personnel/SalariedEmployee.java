@@ -1,8 +1,11 @@
 package com.hr.personnel;
 
+import gov.irs.TaxPayer;
+
 import java.time.LocalDate;
 
 public class SalariedEmployee extends Employee {
+
     private double salary;
 
     public SalariedEmployee() {
@@ -23,13 +26,14 @@ public class SalariedEmployee extends Employee {
         System.out.println(getName() + " is paid salary: "+ getSalary());
     }
 
-    @Override
-    public void fileReturn() {
-        System.out.println("Return filed electronically.");
-    }
-
     public void takeVacation() {
         System.out.println(getName());
+    }
+
+    @Override
+    public void payTaxes() {
+        double taxes = TaxPayer.SALARIED_TAX_RATE * getSalary();
+        System.out.println(getName() + "paid tax amount:" + taxes);
     }
 
     public double getSalary() {
@@ -43,4 +47,6 @@ public class SalariedEmployee extends Employee {
     public String toString() {
         return super.toString() + "Employee: name=" + getName() + ", hireDate=" + getHireDate() +
                 ", salary=" + getSalary();}
+
+
 }
