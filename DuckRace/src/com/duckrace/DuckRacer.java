@@ -2,6 +2,7 @@ package com.duckrace;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 class DuckRacer {
@@ -41,8 +42,10 @@ class DuckRacer {
         return rewards.size();
     }
 
+    // NOTE: we are returning a direct reference to out List<Reward>
+
     public List<Reward> getRewards() {
-        return rewards;
+        return Collections.unmodifiableList(rewards);
     }
 @Override
     public String toString() {
