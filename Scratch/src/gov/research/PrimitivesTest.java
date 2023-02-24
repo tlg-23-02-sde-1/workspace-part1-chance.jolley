@@ -6,7 +6,7 @@ class PrimitivesTest {
         int age = 56;
         System.out.println("The age is: " + age);
 
-        long population = 7_000_000_000l;
+        long population = 7_000_000_000L;
         System.out.println("The population is: " + population);
 
         double height = 185.3;
